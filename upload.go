@@ -381,10 +381,8 @@ func barePlusExt(filename string) (barename, extension string) {
 	barename = filename[:len(filename)-len(extension)]
 	if compressedExts[extension] {
 		ext2 := path.Ext(barename)
-		if archiveExts[ext2] {
-			barename = barename[:len(barename)-len(ext2)]
-			extension = ext2 + extension
-		}
+        barename = barename[:len(barename)-len(ext2)]
+        extension = ext2 + extension
 	}
 
 	extension = extRe.ReplaceAllString(extension, "")
